@@ -7,7 +7,10 @@ VERIFY_TOKEN = "pingrural123"
 
 @app.route('/', methods=['GET', 'POST'])
 def webhook():
+    print("📡 Requisição recebida:", request.method)
+
     if request.method == 'GET':
+        print("🔍 Verificando webhook...")
         mode = request.args.get("hub.mode")
         token = request.args.get("hub.verify_token")
         challenge = request.args.get("hub.challenge")
@@ -16,12 +19,18 @@ def webhook():
             print("✅ Webhook verificado com sucesso!")
             return challenge, 200
         else:
+            print("❌ Token inválido!")
             return "Token inválido", 403
 
     elif request.method == 'POST':
-        data = request.get_json()
-        print("📨 Mensagem recebida:")
-        print(json.dumps(data, indent=2))
+        print("📨 Entrou no bloco POST")
+        try:
+            data = request.get_json()
+            print("📦 Conteúdo recebido:")
+            print(json.dumps(data, indent=2))
+        except Exception as e:
+            print("❌ Erro ao decodificar JSON:", e)
+
         return "Mensagem recebida", 200
 
 if __name__ == '__main__':
