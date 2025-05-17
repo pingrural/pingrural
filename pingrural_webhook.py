@@ -25,13 +25,12 @@ def webhook():
     elif request.method == 'POST':
         print("📨 Entrou no bloco POST")
         try:
-            data = request.get_json()
+            data = request.get_json(force=True)
             print("📦 Conteúdo recebido:")
             print(json.dumps(data, indent=2))
+            return "Mensagem recebida", 200
         except Exception as e:
-            print("❌ Erro ao decodificar JSON:", e)
+            print("❌ Erro ao processar POST:", e)
+            return "Erro interno", 500
 
-        return "Mensagem recebida", 200
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    return "Método não suportado", 405  # segurança extra
