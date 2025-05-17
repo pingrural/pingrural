@@ -26,11 +26,17 @@ def webhook():
     elif request.method == 'POST':
         print("📨 Entrou no bloco POST")
         try:
+            print("🧪 Headers recebidos:")
+            print(dict(request.headers))
+
+            print("📨 Corpo bruto da requisição:")
+            print(request.data.decode("utf-8"))
+
             data = request.get_json(force=True, silent=False)
             if data is None:
-                print("⚠️ Nenhum JSON detectado na requisição!")
+                print("⚠️ Nenhum JSON detectado!")
             else:
-                print("📦 Conteúdo recebido:")
+                print("📦 JSON decodificado com sucesso:")
                 print(json.dumps(data, indent=2))
         except Exception as e:
             print("❌ Erro ao processar POST:", e)
