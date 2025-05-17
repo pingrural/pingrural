@@ -1,0 +1,1 @@
+web: python pingrural_webhook.py
