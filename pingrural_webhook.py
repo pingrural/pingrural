@@ -1,5 +1,6 @@
 from flask import Flask, request
 import json
+import os
 
 app = Flask(__name__)
 
@@ -25,17 +26,19 @@ def webhook():
     elif request.method == 'POST':
         print("📨 Entrou no bloco POST")
         try:
-            data = request.get_json(force=True)
-            print("📦 Conteúdo recebido:")
-            print(json.dumps(data, indent=2))
-            return "Mensagem recebida", 200
+            data = request.get_json(force=True, silent=False)
+            if data is None:
+                print("⚠️ Nenhum JSON detectado na requisição!")
+            else:
+                print("📦 Conteúdo recebido:")
+                print(json.dumps(data, indent=2))
         except Exception as e:
             print("❌ Erro ao processar POST:", e)
-            return "Erro interno", 500
+
+        return "Mensagem recebida", 200
 
     return "Método não suportado", 405
 
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
