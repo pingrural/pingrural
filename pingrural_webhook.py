@@ -33,4 +33,9 @@ def webhook():
             print("❌ Erro ao processar POST:", e)
             return "Erro interno", 500
 
-    return "Método não suportado", 405  # segurança extra
+    return "Método não suportado", 405
+
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
