@@ -3,7 +3,7 @@ import json
 import os
 import logging
 
-# Configuração do logging para aparecer nos logs da Render
+# Configuração do logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -41,6 +41,13 @@ def webhook():
                 logger.warning("⚠️ Nenhum JSON detectado!")
             else:
                 logger.info("📦 JSON decodificado com sucesso:\n%s", json.dumps(data, indent=2))
+
+                # 🧠 Extração dos dados principais
+                message_from = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
+                message_body = data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
+
+                logger.info("📲 Mensagem recebida de %s: %s", message_from, message_body)
+
         except Exception as e:
             logger.error("❌ Erro ao processar POST: %s", e)
 
