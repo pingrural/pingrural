@@ -12,6 +12,7 @@ spreadsheet = client.open_by_key("1MBR8ye3_Cqc2eSkG-jBA4baLIDvLFQB0hELBXHr09RI")
 sheet = spreadsheet.worksheet("mensagens_recebidas")
 
 def registrar_mensagem(numero, mensagem):
+    print("📥 Função registrar_mensagem chamada.")  # novo log
     agora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     sheet.append_row([agora, numero, mensagem])
-    print(f"✅ Registrado: {numero} - {mensagem}")
+    print(f"✅ Registrado: {numero} - {mensagem}")  # log de confirmação
