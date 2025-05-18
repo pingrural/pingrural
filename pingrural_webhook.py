@@ -3,7 +3,7 @@ import json
 import os
 import logging
 
-# Configura o logging para aparecer nos logs da Render
+# Configuração do logging para aparecer nos logs da Render
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -40,3 +40,14 @@ def webhook():
             if data is None:
                 logger.warning("⚠️ Nenhum JSON detectado!")
             else:
+                logger.info("📦 JSON decodificado com sucesso:\n%s", json.dumps(data, indent=2))
+        except Exception as e:
+            logger.error("❌ Erro ao processar POST: %s", e)
+
+        return "Mensagem recebida", 200
+
+    return "Método não suportado", 405
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
