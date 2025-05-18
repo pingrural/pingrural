@@ -49,13 +49,12 @@ def webhook():
 
                 logger.info("📲 Mensagem recebida de %s: %s", message_from, message_body)
 
-                # 📝 Registrar no Google Sheets
+                # 📝 Tentar registrar no Google Sheets
                 try:
                     registrar_mensagem(message_from, message_body)
                     logger.info("✅ Registrado no Google Sheets com sucesso!")
-                    except Exception as erro:
+                except Exception as erro:
                     logger.error("❌ Erro ao registrar no Google Sheets: %s", erro)
-
 
         except Exception as e:
             logger.error("❌ Erro ao processar POST: %s", e)
