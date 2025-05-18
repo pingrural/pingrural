@@ -2,6 +2,7 @@ from flask import Flask, request
 import json
 import os
 import logging
+from registrar_no_sheets import registrar_mensagem  # integração com planilha
 
 # Configuração do logging
 logging.basicConfig(level=logging.INFO)
@@ -47,6 +48,9 @@ def webhook():
                 message_body = data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
                 logger.info("📲 Mensagem recebida de %s: %s", message_from, message_body)
+
+                # 📝 Registrar no Google Sheets
+                registrar_mensagem(message_from, message_body)
 
         except Exception as e:
             logger.error("❌ Erro ao processar POST: %s", e)
