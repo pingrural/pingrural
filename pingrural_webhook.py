@@ -43,15 +43,21 @@ def webhook():
             else:
                 logger.info("📦 JSON decodificado com sucesso:\n%s", json.dumps(data, indent=2))
 
-                # 🧠 Extração dos dados principais
+                # Extração dos dados principais
                 message_from = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
                 message_body = data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
 
-                logger.info("📲 Mensagem recebida de %s: %s", message_from, message_body)
-
-                # 📝 Tentar registrar no Google Sheets
+                # Tentativa de obter o nome
                 try:
-                    registrar_mensagem(message_from, message_body)
+                    message_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']
+                except Exception:
+                    message_name = "Desconhecido"
+
+                logger.info("📲 Mensagem recebida de %s (%s): %s", message_from, message_name, message_body)
+
+                # Tentar registrar no Google Sheets
+                try:
+                    registrar_mensagem(message_from, message_body, message_name)
                     logger.info("✅ Registrado no Google Sheets com sucesso!")
                 except Exception as erro:
                     logger.error("❌ Erro ao registrar no Google Sheets: %s", erro)
