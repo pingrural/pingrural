@@ -1,62 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ping Rural - Notícias do Agro</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
-    input, select { padding: 10px; margin: 5px; width: 250px; }
-    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-    .hidden { display: none; }
-  </style>
-</head>
-<body>
-  <h1>📢 Bem-vindo ao Ping Rural</h1>
-  <p>Receba notícias do agro diretamente no seu WhatsApp!</p>
-
-  <form id="pingForm">
-    <input type="text" name="entry.1643790843" placeholder="Seu nome completo" required><br>
-    <input type="text" name="entry.481452347" placeholder="DDD" required><br>
-    <input type="text" name="entry.1191917895" placeholder="Número de WhatsApp" required><br>
-    
-    <select name="entry.1643465392" multiple required>
-      <option value="Soja">Soja</option>
-      <option value="Milho">Milho</option>
-      <option value="Boi Gordo">Boi Gordo</option>
-      <option value="Clima">Clima</option>
-      <option value="Cotações Agrícolas">Cotações Agrícolas</option>
-      <option value="Dólar">Dólar</option>
-    </select><br>
-    
-    <button type="submit">Quero Receber Notícias</button>
-  </form>
-
-  <p id="sucesso" class="hidden">✅ Sua inscrição foi realizada com sucesso!</p>
-
-  <script>
-    const form = document.getElementById('pingForm');
-    const sucesso = document.getElementById('sucesso');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      try {
-        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfkp80iKOHxEqpnkOa2jUVapoEJ_8mndxvg8itERbyoFYJ3mQ/formResponse', {
-          method: 'POST',
-          mode: 'no-cors',
-          body: data
-        });
-
-        form.classList.add('hidden');
-        sucesso.classList.remove('hidden');
-      } catch (error) {
-        alert('Erro ao enviar. Tente novamente mais tarde.');
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ping Rural</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1f3d1f;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        text-align: center;
       }
-    });
-  </script>
 
-  <p style="margin-top: 50px; font-size: 14px;">© 2025 Ping Rural</p>
-</body>
+      img {
+        max-width: 250px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 300;
+        max-width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="logo.png" alt="Logo Ping Rural" />
+    <h1>Ping Rural</h1>
+    <p>🌱 O agro não para. Nem a gente.</p>
+  </body>
 </html>
