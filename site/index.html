@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ping Rural</title>
   <style>
     body {
@@ -9,119 +10,139 @@
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px;
     }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
     form {
-      background-color: #1e4d2b;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
       max-width: 500px;
       margin: 0 auto;
+      background-color: #1e4d2b;
+      padding: 20px;
+      border-radius: 12px;
     }
-    input[type="text"],
-    input[type="number"] {
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
       padding: 10px;
-      margin: 10px 0;
-      width: 90%;
+      border-radius: 8px;
       border: none;
-      border-radius: 5px;
+      margin-bottom: 10px;
     }
+
     .checkbox-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
     }
+
     .checkbox-group label {
-      margin: 5px 10px;
       background-color: #2c6e49;
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
     button {
-      background-color: #4caf50;
+      background-color: #4CAF50;
       color: white;
       border: none;
       padding: 12px 20px;
-      border-radius: 5px;
       font-size: 16px;
-      margin-top: 10px;
+      border-radius: 8px;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo" width="200" />
+  <img src="logo.png" alt="Ping Rural" style="width: 200px; margin-bottom: 20px;">
   <h1>Ping Rural</h1>
   <p>🌱 O agro não para. Nem a gente.</p>
 
-  <form id="cadastroForm">
-    <label>Nome completo:</label><br />
-    <input type="text" name="nome" required /><br />
+  <form id="formulario">
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" required />
 
-    <label>DDD do seu número:</label><br />
-    <input type="number" name="ddd" required pattern="\d{2}" /><br />
+    <label for="ddd">DDD do seu número:</label>
+    <input type="text" id="ddd" required pattern="[0-9]{2}" />
 
-    <label>Número de WhatsApp:</label><br />
-    <input type="text" name="numero" required /><br />
+    <label for="numero">Número de WhatsApp:</label>
+    <input type="text" id="numero" required pattern="[0-9]{8,9}" />
 
-    <label>Tema(s) de interesse:</label><br />
+    <label>Tema(s) de interesse:</label>
     <div class="checkbox-group">
-      <label><input type="checkbox" name="temas" value="Soja" /> Soja</label>
-      <label><input type="checkbox" name="temas" value="Milho" /> Milho</label>
-      <label><input type="checkbox" name="temas" value="Boi Gordo" /> Boi Gordo</label>
-      <label><input type="checkbox" name="temas" value="Clima" /> Clima</label>
-      <label><input type="checkbox" name="temas" value="Café" /> Café</label>
-      <label><input type="checkbox" name="temas" value="Cotações Agrícolas" /> Cotações Agrícolas</label>
-      <label><input type="checkbox" name="temas" value="Petróleo" /> Petróleo</label>
-      <label><input type="checkbox" name="temas" value="Dólar" /> Dólar</label>
-      <label><input type="checkbox" name="temas" value="Crédito Rural" /> Crédito Rural</label>
-      <label><input type="checkbox" name="temas" value="Aveia" /> Aveia</label>
-      <label><input type="checkbox" name="temas" value="Economia & Política" /> Economia & Política</label>
-      <label><input type="checkbox" name="temas" value="Tecnologia no Campo" /> Tecnologia no Campo</label>
-      <label><input type="checkbox" name="temas" value="Exportações & Logística" /> Exportações & Logística</label>
-      <label><input type="checkbox" name="temas" value="Algodão" /> Algodão</label>
-      <label><input type="checkbox" name="temas" value="Feijão" /> Feijão</label>
-      <label><input type="checkbox" name="temas" value="Arroz" /> Arroz</label>
+      <label><input type="checkbox" name="temas" value="Soja"> Soja</label>
+      <label><input type="checkbox" name="temas" value="Milho"> Milho</label>
+      <label><input type="checkbox" name="temas" value="Boi Gordo"> Boi Gordo</label>
+      <label><input type="checkbox" name="temas" value="Clima"> Clima</label>
+      <label><input type="checkbox" name="temas" value="Café"> Café</label>
+      <label><input type="checkbox" name="temas" value="Cotações Agrícolas"> Cotações Agrícolas</label>
+      <label><input type="checkbox" name="temas" value="Petróleo"> Petróleo</label>
+      <label><input type="checkbox" name="temas" value="Dólar"> Dólar</label>
+      <label><input type="checkbox" name="temas" value="Crédito Rural"> Crédito Rural</label>
+      <label><input type="checkbox" name="temas" value="Aveia"> Aveia</label>
+      <label><input type="checkbox" name="temas" value="Economia & Política"> Economia & Política</label>
+      <label><input type="checkbox" name="temas" value="Tecnologia no Campo"> Tecnologia no Campo</label>
+      <label><input type="checkbox" name="temas" value="Exportações & Logística"> Exportações & Logística</label>
+      <label><input type="checkbox" name="temas" value="Algodão"> Algodão</label>
+      <label><input type="checkbox" name="temas" value="Feijão"> Feijão</label>
+      <label><input type="checkbox" name="temas" value="Arroz"> Arroz</label>
     </div>
 
     <button type="submit">Quero receber notícias!</button>
   </form>
 
   <script>
-    document.getElementById('cadastroForm').addEventListener('submit', function (e) {
+    document.getElementById("formulario").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const form = e.target;
-      const formData = new FormData(form);
+      const nome = document.getElementById("nome").value.trim();
+      const ddd = document.getElementById("ddd").value.trim();
+      const numero = document.getElementById("numero").value.trim();
+      const checkboxes = document.querySelectorAll('input[name="temas"]:checked');
+      const temas = Array.from(checkboxes).map(cb => cb.value).join(", ");
 
-      const temasSelecionados = [];
-      form.querySelectorAll('input[name="temas"]:checked').forEach((el) => {
-        temasSelecionados.push(el.value);
-      });
+      const queryString = `nome=${encodeURIComponent(nome)}&ddd=${encodeURIComponent(ddd)}&numero=${encodeURIComponent(numero)}&temas=${encodeURIComponent(temas)}`;
 
-      const dados = {
-        nome: formData.get('nome'),
-        ddd: formData.get('ddd'),
-        numero: formData.get('numero'),
-        temas: temasSelecionados.join(', ')
-      };
-
-      const queryString = new URLSearchParams(dados).toString();
-
-      fetch('https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94LgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec', {
         method: 'POST',
-        body: queryString,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
+        body: queryString,
       })
-      .then(() => {
-        window.location.href = "obrigado.html";
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "obrigado.html";
+        } else {
+          alert("Erro ao enviar o cadastro. Tente novamente.");
+        }
       })
-      .catch(err => {
-        alert("Erro ao enviar o cadastro. Tente novamente.");
-        console.error("Erro:", err);
+      .catch(error => {
+        console.error("Erro na requisição:", error);
+        alert("Erro de rede. Tente novamente.");
       });
     });
   </script>
