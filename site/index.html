@@ -90,6 +90,7 @@
       const formData = new FormData(form);
       const temasSelecionados = [];
       form.querySelectorAll('input[name="temas"]:checked').forEach(cb => temasSelecionados.push(cb.value));
+
       const data = new URLSearchParams();
       data.append('nome', formData.get('nome'));
       data.append('ddd', formData.get('ddd'));
@@ -102,7 +103,7 @@
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: data
+          body: data.toString()
         });
 
         if (response.ok) {
