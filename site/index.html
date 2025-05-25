@@ -103,17 +103,17 @@
   <p class="subtitle">🌱 O agro não para. Nem a gente.</p>
 
   <form method="POST"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSfkp80iKOHxEqpnkOa2jUVapoEJ_8mndxvg8itERbyoFYJ3mQ/formResponse"
+        action="https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec"
         target="hidden_iframe" onsubmit="submitted=true">
 
     <label for="nome">Nome completo:</label>
-    <input type="text" id="nome" name="entry.2005620554" required />
+    <input type="text" id="nome" name="nome" required />
 
     <label for="ddd">DDD do seu número:</label>
-    <input type="tel" id="ddd" name="entry.1045781291" required maxlength="2" />
+    <input type="tel" id="ddd" name="ddd" required maxlength="2" />
 
-    <label for="whatsapp">Número de WhatsApp com DDD:</label>
-    <input type="tel" id="whatsapp" name="entry.1166974658" required maxlength="11" />
+    <label for="numero">Número de WhatsApp:</label>
+    <input type="tel" id="numero" name="numero" required maxlength="9" />
 
     <label><strong>Selecione os assuntos que mais te interessam:</strong></label>
     <div class="checkbox-group">
@@ -135,8 +135,8 @@
       <label><input type="checkbox" class="interesse" value="Arroz"> Arroz</label>
     </div>
 
-    <!-- Campo oculto para coletar os interesses em formato texto -->
-    <input type="hidden" name="entry.839337160" id="temasSelecionados" />
+    <!-- Campo oculto que será preenchido via JS -->
+    <input type="hidden" name="temas" id="temasSelecionados" />
 
     <button type="submit">Quero receber notícias!</button>
   </form>
@@ -146,7 +146,6 @@
 
   <script>
     var submitted = false;
-
     document.querySelector("form").addEventListener("submit", function () {
       const selecionados = Array.from(document.querySelectorAll(".interesse:checked"))
                                 .map(cb => cb.value)
