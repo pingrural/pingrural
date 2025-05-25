@@ -117,31 +117,42 @@
 
     <label><strong>Selecione os assuntos que mais te interessam:</strong></label>
     <div class="checkbox-group">
-      <label><input type="checkbox" name="entry.839337160" value="Soja"> Soja</label>
-      <label><input type="checkbox" name="entry.839337160" value="Milho"> Milho</label>
-      <label><input type="checkbox" name="entry.839337160" value="Boi Gordo"> Boi Gordo</label>
-      <label><input type="checkbox" name="entry.839337160" value="Clima"> Clima</label>
-      <label><input type="checkbox" name="entry.839337160" value="Café"> Café</label>
-      <label><input type="checkbox" name="entry.839337160" value="Cotações Agrícolas"> Cotações Agrícolas</label>
-      <label><input type="checkbox" name="entry.839337160" value="Petróleo"> Petróleo</label>
-      <label><input type="checkbox" name="entry.839337160" value="Dólar"> Dólar</label>
-      <label><input type="checkbox" name="entry.839337160" value="Crédito Rural"> Crédito Rural</label>
-      <label><input type="checkbox" name="entry.839337160" value="Aveia"> Aveia</label>
-      <label><input type="checkbox" name="entry.839337160" value="Economia & Política"> Economia & Política</label>
-      <label><input type="checkbox" name="entry.839337160" value="Tecnologia no Campo"> Tecnologia no Campo</label>
-      <label><input type="checkbox" name="entry.839337160" value="Exportações & Logística"> Exportações & Logística</label>
-      <label><input type="checkbox" name="entry.839337160" value="Algodão"> Algodão</label>
-      <label><input type="checkbox" name="entry.839337160" value="Feijão"> Feijão</label>
-      <label><input type="checkbox" name="entry.839337160" value="Arroz"> Arroz</label>
+      <label><input type="checkbox" class="interesse" value="Soja"> Soja</label>
+      <label><input type="checkbox" class="interesse" value="Milho"> Milho</label>
+      <label><input type="checkbox" class="interesse" value="Boi Gordo"> Boi Gordo</label>
+      <label><input type="checkbox" class="interesse" value="Clima"> Clima</label>
+      <label><input type="checkbox" class="interesse" value="Café"> Café</label>
+      <label><input type="checkbox" class="interesse" value="Cotações Agrícolas"> Cotações Agrícolas</label>
+      <label><input type="checkbox" class="interesse" value="Petróleo"> Petróleo</label>
+      <label><input type="checkbox" class="interesse" value="Dólar"> Dólar</label>
+      <label><input type="checkbox" class="interesse" value="Crédito Rural"> Crédito Rural</label>
+      <label><input type="checkbox" class="interesse" value="Aveia"> Aveia</label>
+      <label><input type="checkbox" class="interesse" value="Economia & Política"> Economia & Política</label>
+      <label><input type="checkbox" class="interesse" value="Tecnologia no Campo"> Tecnologia no Campo</label>
+      <label><input type="checkbox" class="interesse" value="Exportações & Logística"> Exportações & Logística</label>
+      <label><input type="checkbox" class="interesse" value="Algodão"> Algodão</label>
+      <label><input type="checkbox" class="interesse" value="Feijão"> Feijão</label>
+      <label><input type="checkbox" class="interesse" value="Arroz"> Arroz</label>
     </div>
+
+    <!-- Campo oculto para coletar os interesses em formato texto -->
+    <input type="hidden" name="entry.839337160" id="temasSelecionados" />
 
     <button type="submit">Quero receber notícias!</button>
   </form>
 
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
           onload="if(submitted) { window.location='obrigado.html'; }"></iframe>
+
   <script>
     var submitted = false;
+
+    document.querySelector("form").addEventListener("submit", function () {
+      const selecionados = Array.from(document.querySelectorAll(".interesse:checked"))
+                                .map(cb => cb.value)
+                                .join(", ");
+      document.getElementById("temasSelecionados").value = selecionados;
+    });
   </script>
 </body>
 </html>
