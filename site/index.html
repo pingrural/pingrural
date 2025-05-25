@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ping Rural</title>
   <style>
     body {
@@ -10,154 +10,98 @@
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px;
     }
-
-    img {
-      max-width: 200px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin: 0;
-    }
-
     form {
-      max-width: 400px;
-      margin: 0 auto;
-      background-color: #1e4724;
-      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background-color: #1f4b2c;
+      padding: 30px;
       border-radius: 10px;
     }
-
-    label {
-      display: block;
-      text-align: left;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
     input[type="text"], input[type="tel"] {
-      width: 100%;
+      width: 90%;
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
+      margin: 10px 0;
       border: none;
+      border-radius: 5px;
     }
-
+    .checkbox-group {
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .checkbox-group label {
+      margin: 8px;
+      background-color: #245d38;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-group input {
+      margin-right: 8px;
+    }
     button {
-      background-color: #2ecc71;
+      background-color: #4CAF50;
       color: white;
       padding: 12px 20px;
       margin-top: 20px;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #27ae60;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 20px;
-      margin-top: 10px;
-      justify-content: left;
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 15px;
-      background-color: #295d35;
-      padding: 6px 12px;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      font-size: 16px;
     }
-
-    .checkbox-group label:hover {
-      background-color: #2d6a3e;
-    }
-
-    .checkbox-group input[type="checkbox"] {
-      transform: scale(1.2);
-      accent-color: #2ecc71;
-    }
-
-    .subtitle {
-      font-size: 15px;
-      color: #b9f3ce;
-      margin-bottom: 25px;
+    button:hover {
+      background-color: #45a049;
     }
   </style>
-
-  <!-- ✅ Correção: declaração da variável global -->
-  <script>
-    var submitted = false;
-  </script>
 </head>
 <body>
-  <img src="logo.png" alt="Ping Rural" />
+
+  <img src="logo.png" alt="Ping Rural" width="200" />
   <h1>Ping Rural</h1>
-  <p class="subtitle">🌱 O agro não para. Nem a gente.</p>
+  <p>🌱 O agro não para. Nem a gente.</p>
 
-  <form method="POST"
-        action="https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec"
-        target="_blank">
+  <form id="cadastroForm">
+    <label>Nome completo:</label><br>
+    <input type="text" name="nome" required><br>
 
-    <label for="nome">Nome completo:</label>
-    <input type="text" id="nome" name="nome" required />
+    <label>DDD do seu número:</label><br>
+    <input type="tel" name="ddd" pattern="[0-9]{2}" required><br>
 
-    <label for="ddd">DDD do seu número:</label>
-    <input type="tel" id="ddd" name="ddd" required maxlength="2" />
+    <label>Número de WhatsApp:</label><br>
+    <input type="tel" name="numero" pattern="[0-9]{8,9}" required><br>
 
-    <label for="numero">Número de WhatsApp:</label>
-    <input type="tel" id="numero" name="numero" required maxlength="9" />
-
-    <label><strong>Selecione os assuntos que mais te interessam:</strong></label>
+    <label>Tema(s) de interesse:</label>
     <div class="checkbox-group">
-      <label><input type="checkbox" class="interesse" value="Soja"> Soja</label>
-      <label><input type="checkbox" class="interesse" value="Milho"> Milho</label>
-      <label><input type="checkbox" class="interesse" value="Boi Gordo"> Boi Gordo</label>
-      <label><input type="checkbox" class="interesse" value="Clima"> Clima</label>
-      <label><input type="checkbox" class="interesse" value="Café"> Café</label>
-      <label><input type="checkbox" class="interesse" value="Cotações Agrícolas"> Cotações Agrícolas</label>
-      <label><input type="checkbox" class="interesse" value="Petróleo"> Petróleo</label>
-      <label><input type="checkbox" class="interesse" value="Dólar"> Dólar</label>
-      <label><input type="checkbox" class="interesse" value="Crédito Rural"> Crédito Rural</label>
-      <label><input type="checkbox" class="interesse" value="Aveia"> Aveia</label>
-      <label><input type="checkbox" class="interesse" value="Economia & Política"> Economia & Política</label>
-      <label><input type="checkbox" class="interesse" value="Tecnologia no Campo"> Tecnologia no Campo</label>
-      <label><input type="checkbox" class="interesse" value="Exportações & Logística"> Exportações & Logística</label>
-      <label><input type="checkbox" class="interesse" value="Algodão"> Algodão</label>
-      <label><input type="checkbox" class="interesse" value="Feijão"> Feijão</label>
-      <label><input type="checkbox" class="interesse" value="Arroz"> Arroz</label>
+      <label><input type="checkbox" name="temas" value="Soja"> Soja</label>
+      <label><input type="checkbox" name="temas" value="Milho"> Milho</label>
+      <label><input type="checkbox" name="temas" value="Boi Gordo"> Boi Gordo</label>
+      <label><input type="checkbox" name="temas" value="Clima"> Clima</label>
+      <label><input type="checkbox" name="temas" value="Café"> Café</label>
+      <label><input type="checkbox" name="temas" value="Cotações Agrícolas"> Cotações Agrícolas</label>
+      <label><input type="checkbox" name="temas" value="Petróleo"> Petróleo</label>
+      <label><input type="checkbox" name="temas" value="Dólar"> Dólar</label>
+      <label><input type="checkbox" name="temas" value="Crédito Rural"> Crédito Rural</label>
+      <label><input type="checkbox" name="temas" value="Aveia"> Aveia</label>
+      <label><input type="checkbox" name="temas" value="Economia & Política"> Economia & Política</label>
+      <label><input type="checkbox" name="temas" value="Tecnologia no Campo"> Tecnologia no Campo</label>
+      <label><input type="checkbox" name="temas" value="Exportações & Logística"> Exportações & Logística</label>
+      <label><input type="checkbox" name="temas" value="Algodão"> Algodão</label>
+      <label><input type="checkbox" name="temas" value="Feijão"> Feijão</label>
+      <label><input type="checkbox" name="temas" value="Arroz"> Arroz</label>
     </div>
-
-    <!-- campo oculto -->
-    <input type="hidden" name="temas" id="temasSelecionados" />
 
     <button type="submit">Quero receber notícias!</button>
   </form>
 
-  <!-- IFRAME para redirecionar -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
-          onload="if(submitted) { window.location='obrigado.html'; }"></iframe>
-
-  <!-- Script para capturar os temas selecionados -->
   <script>
-    document.querySelector("form").addEventListener("submit", function () {
-      const selecionados = Array.from(document.querySelectorAll(".interesse:checked"))
-                                .map(cb => cb.value)
-                                .join(", ");
-      document.getElementById("temasSelecionados").value = selecionados;
-    });
-  </script>
-</body>
-</html>
+    document.getElementById('cadastroForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      // Coleta todos os checkboxes marcados
