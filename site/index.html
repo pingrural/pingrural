@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ping Rural</title>
   <style>
     body {
@@ -10,88 +9,80 @@
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding: 40px;
+      padding: 20px;
     }
     form {
-      max-width: 500px;
-      margin: auto;
-      background-color: #1f4b2c;
-      padding: 30px;
+      background-color: #1e4d2b;
+      padding: 20px;
       border-radius: 10px;
-    }
-    input[type="text"], input[type="tel"] {
       width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input[type="text"],
+    input[type="number"] {
       padding: 10px;
       margin: 10px 0;
+      width: 90%;
       border: none;
       border-radius: 5px;
     }
     .checkbox-group {
-      text-align: left;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
     .checkbox-group label {
-      margin: 8px;
-      background-color: #245d38;
-      padding: 8px 12px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-    }
-    .checkbox-group input {
-      margin-right: 8px;
+      margin: 5px 10px;
+      background-color: #2c6e49;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
     button {
-      background-color: #4CAF50;
+      background-color: #4caf50;
       color: white;
-      padding: 12px 20px;
-      margin-top: 20px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 5px;
       font-size: 16px;
-    }
-    button:hover {
-      background-color: #45a049;
+      margin-top: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <img src="logo.png" alt="Ping Rural" width="200" />
+  <img src="logo.png" alt="Logo" width="200" />
   <h1>Ping Rural</h1>
   <p>🌱 O agro não para. Nem a gente.</p>
 
   <form id="cadastroForm">
-    <label>Nome completo:</label><br>
-    <input type="text" name="nome" required><br>
+    <label>Nome completo:</label><br />
+    <input type="text" name="nome" required /><br />
 
-    <label>DDD do seu número:</label><br>
-    <input type="tel" name="ddd" pattern="[0-9]{2}" required><br>
+    <label>DDD do seu número:</label><br />
+    <input type="number" name="ddd" required pattern="\d{2}" /><br />
 
-    <label>Número de WhatsApp:</label><br>
-    <input type="tel" name="numero" pattern="[0-9]{8,9}" required><br>
+    <label>Número de WhatsApp:</label><br />
+    <input type="text" name="numero" required /><br />
 
-    <label>Tema(s) de interesse:</label>
+    <label>Tema(s) de interesse:</label><br />
     <div class="checkbox-group">
-      <label><input type="checkbox" name="temas" value="Soja"> Soja</label>
-      <label><input type="checkbox" name="temas" value="Milho"> Milho</label>
-      <label><input type="checkbox" name="temas" value="Boi Gordo"> Boi Gordo</label>
-      <label><input type="checkbox" name="temas" value="Clima"> Clima</label>
-      <label><input type="checkbox" name="temas" value="Café"> Café</label>
-      <label><input type="checkbox" name="temas" value="Cotações Agrícolas"> Cotações Agrícolas</label>
-      <label><input type="checkbox" name="temas" value="Petróleo"> Petróleo</label>
-      <label><input type="checkbox" name="temas" value="Dólar"> Dólar</label>
-      <label><input type="checkbox" name="temas" value="Crédito Rural"> Crédito Rural</label>
-      <label><input type="checkbox" name="temas" value="Aveia"> Aveia</label>
-      <label><input type="checkbox" name="temas" value="Economia & Política"> Economia & Política</label>
-      <label><input type="checkbox" name="temas" value="Tecnologia no Campo"> Tecnologia no Campo</label>
-      <label><input type="checkbox" name="temas" value="Exportações & Logística"> Exportações & Logística</label>
-      <label><input type="checkbox" name="temas" value="Algodão"> Algodão</label>
-      <label><input type="checkbox" name="temas" value="Feijão"> Feijão</label>
-      <label><input type="checkbox" name="temas" value="Arroz"> Arroz</label>
+      <label><input type="checkbox" name="temas" value="Soja" /> Soja</label>
+      <label><input type="checkbox" name="temas" value="Milho" /> Milho</label>
+      <label><input type="checkbox" name="temas" value="Boi Gordo" /> Boi Gordo</label>
+      <label><input type="checkbox" name="temas" value="Clima" /> Clima</label>
+      <label><input type="checkbox" name="temas" value="Café" /> Café</label>
+      <label><input type="checkbox" name="temas" value="Cotações Agrícolas" /> Cotações Agrícolas</label>
+      <label><input type="checkbox" name="temas" value="Petróleo" /> Petróleo</label>
+      <label><input type="checkbox" name="temas" value="Dólar" /> Dólar</label>
+      <label><input type="checkbox" name="temas" value="Crédito Rural" /> Crédito Rural</label>
+      <label><input type="checkbox" name="temas" value="Aveia" /> Aveia</label>
+      <label><input type="checkbox" name="temas" value="Economia & Política" /> Economia & Política</label>
+      <label><input type="checkbox" name="temas" value="Tecnologia no Campo" /> Tecnologia no Campo</label>
+      <label><input type="checkbox" name="temas" value="Exportações & Logística" /> Exportações & Logística</label>
+      <label><input type="checkbox" name="temas" value="Algodão" /> Algodão</label>
+      <label><input type="checkbox" name="temas" value="Feijão" /> Feijão</label>
+      <label><input type="checkbox" name="temas" value="Arroz" /> Arroz</label>
     </div>
 
     <button type="submit">Quero receber notícias!</button>
@@ -104,4 +95,35 @@
       const form = e.target;
       const formData = new FormData(form);
 
-      // Coleta todos os checkboxes marcados
+      const temasSelecionados = [];
+      form.querySelectorAll('input[name="temas"]:checked').forEach((el) => {
+        temasSelecionados.push(el.value);
+      });
+
+      const dados = {
+        nome: formData.get('nome'),
+        ddd: formData.get('ddd'),
+        numero: formData.get('numero'),
+        temas: temasSelecionados.join(', ')
+      };
+
+      const queryString = new URLSearchParams(dados).toString();
+
+      fetch('https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec', {
+        method: 'POST',
+        body: queryString,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then(() => {
+        window.location.href = "obrigado.html";
+      })
+      .catch(err => {
+        alert("Erro ao enviar o cadastro. Tente novamente.");
+        console.error("Erro:", err);
+      });
+    });
+  </script>
+</body>
+</html>
