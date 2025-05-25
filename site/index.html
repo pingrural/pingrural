@@ -1,139 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ping Rural - Cadastro</title>
-    <style>
-      body {
-        background-color: #153a1e;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 40px;
-      }
-      .form-container {
-        background-color: #0e2917;
-        padding: 20px;
-        border-radius: 10px;
-        display: inline-block;
-        margin-top: 20px;
-      }
-      input[type="text"],
-      input[type="tel"] {
-        width: 80%;
-        padding: 10px;
-        margin: 10px 0;
-        border-radius: 5px;
-        border: none;
-        font-size: 16px;
-      }
-      .checkbox-group {
-        text-align: left;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .checkbox-group label {
-        margin: 5px 10px;
-        background-color: #1e4d2b;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .checkbox-group input {
-        margin-right: 5px;
-      }
-      button {
-        background-color: #2f8038;
-        border: none;
-        padding: 10px 20px;
-        color: white;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 15px;
-      }
-    </style>
-  </head>
-  <body>
-    <img src="logo.png" alt="Ping Rural" width="180" />
-    <h1>Ping Rural</h1>
-    <p>🌱 O agro não para. Nem a gente.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ping Rural</title>
+  <style>
+    body {
+      background-color: #153a1e;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .checkbox-group label {
+      margin: 5px 10px;
+    }
+    button {
+      padding: 12px 20px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ping Rural</h1>
+  <p>🌱 O agro não para. Nem a gente.</p>
 
-    <div class="form-container">
-      <form id="cadastro-form">
-        <label>Nome completo:</label><br />
-        <input type="text" name="nome" required /><br />
-
-        <label>DDD do seu número:</label><br />
-        <input type="text" name="ddd" required /><br />
-
-        <label>Número de WhatsApp:</label><br />
-        <input type="tel" name="numero" required /><br />
-
-        <label>Tema(s) de interesse:</label><br />
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="temas" value="Soja" /> Soja</label>
-          <label><input type="checkbox" name="temas" value="Milho" /> Milho</label>
-          <label><input type="checkbox" name="temas" value="Boi Gordo" /> Boi Gordo</label>
-          <label><input type="checkbox" name="temas" value="Clima" /> Clima</label>
-          <label><input type="checkbox" name="temas" value="Café" /> Café</label>
-          <label><input type="checkbox" name="temas" value="Cotações Agrícolas" /> Cotações Agrícolas</label>
-          <label><input type="checkbox" name="temas" value="Petróleo" /> Petróleo</label>
-          <label><input type="checkbox" name="temas" value="Dólar" /> Dólar</label>
-          <label><input type="checkbox" name="temas" value="Crédito Rural" /> Crédito Rural</label>
-          <label><input type="checkbox" name="temas" value="Aveia" /> Aveia</label>
-          <label><input type="checkbox" name="temas" value="Economia & Política" /> Economia & Política</label>
-          <label><input type="checkbox" name="temas" value="Tecnologia no Campo" /> Tecnologia no Campo</label>
-          <label><input type="checkbox" name="temas" value="Exportações & Logística" /> Exportações & Logística</label>
-          <label><input type="checkbox" name="temas" value="Algodão" /> Algodão</label>
-          <label><input type="checkbox" name="temas" value="Feijão" /> Feijão</label>
-          <label><input type="checkbox" name="temas" value="Arroz" /> Arroz</label>
-        </div>
-
-        <button type="submit">Quero receber notícias!</button>
-      </form>
+  <form id="pingForm">
+    <div>
+      <label>Nome completo:</label><br/>
+      <input type="text" name="nome" required />
+    </div>
+    <div>
+      <label>DDD do seu número:</label><br/>
+      <input type="text" name="ddd" required />
+    </div>
+    <div>
+      <label>Número de WhatsApp:</label><br/>
+      <input type="text" name="numero" required />
+    </div>
+    <div>
+      <label>Tema(s) de interesse:</label><br/>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="temas" value="Soja" /> Soja</label>
+        <label><input type="checkbox" name="temas" value="Milho" /> Milho</label>
+        <label><input type="checkbox" name="temas" value="Boi Gordo" /> Boi Gordo</label>
+        <label><input type="checkbox" name="temas" value="Clima" /> Clima</label>
+        <label><input type="checkbox" name="temas" value="Café" /> Café</label>
+        <label><input type="checkbox" name="temas" value="Cotações Agrícolas" /> Cotações Agrícolas</label>
+        <label><input type="checkbox" name="temas" value="Petróleo" /> Petróleo</label>
+        <label><input type="checkbox" name="temas" value="Dólar" /> Dólar</label>
+        <label><input type="checkbox" name="temas" value="Crédito Rural" /> Crédito Rural</label>
+        <label><input type="checkbox" name="temas" value="Aveia" /> Aveia</label>
+        <label><input type="checkbox" name="temas" value="Economia & Política" /> Economia & Política</label>
+        <label><input type="checkbox" name="temas" value="Tecnologia no Campo" /> Tecnologia no Campo</label>
+        <label><input type="checkbox" name="temas" value="Exportações & Logística" /> Exportações & Logística</label>
+        <label><input type="checkbox" name="temas" value="Algodão" /> Algodão</label>
+        <label><input type="checkbox" name="temas" value="Feijão" /> Feijão</label>
+        <label><input type="checkbox" name="temas" value="Arroz" /> Arroz</label>
+      </div>
     </div>
 
-    <script>
-      document.getElementById("cadastro-form").addEventListener("submit", function (event) {
-        event.preventDefault();
+    <button type="submit">Quero receber notícias!</button>
+  </form>
 
-        const form = event.target;
-        const data = new FormData(form);
+  <script>
+    const form = document.getElementById('pingForm');
 
-        const queryString = new URLSearchParams();
-        data.forEach((value, key) => {
-          if (key === "temas") {
-            queryString.append("temas", value);
-          } else {
-            queryString.set(key, value);
-          }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec';
+
+      const formData = new FormData(form);
+      const temasSelecionados = [];
+      form.querySelectorAll('input[name="temas"]:checked').forEach(cb => temasSelecionados.push(cb.value));
+      const data = new URLSearchParams();
+      data.append('nome', formData.get('nome'));
+      data.append('ddd', formData.get('ddd'));
+      data.append('numero', formData.get('numero'));
+      data.append('temas', temasSelecionados.join(', '));
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: data
         });
 
-        const actionUrl = "https://script.google.com/macros/s/AKfycbxl9wrFgJNmn7cQ26dFpo4X4jVqsHkXGmbU-nl94lgE8A_MoBAUiRR4iAofIU-Ug434XQ/exec";
-
-        const tempForm = document.createElement("form");
-        tempForm.action = actionUrl;
-        tempForm.method = "POST";
-        tempForm.target = "_blank";
-        tempForm.style.display = "none";
-
-        queryString.forEach((value, key) => {
-          const input = document.createElement("input");
-          input.name = key;
-          input.value = value;
-          input.type = "hidden";
-          tempForm.appendChild(input);
-        });
-
-        document.body.appendChild(tempForm);
-        tempForm.submit();
-        tempForm.remove();
-
-        window.location.href = "obrigado.html";
-      });
-    </script>
-  </body>
+        if (response.ok) {
+          window.location.href = 'obrigado.html';
+        } else {
+          alert('Erro ao enviar. Tente novamente.');
+        }
+      } catch (err) {
+        alert('Erro de rede. Tente novamente.');
+      }
+    });
+  </script>
+</body>
 </html>
