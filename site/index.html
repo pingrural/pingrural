@@ -102,17 +102,20 @@
   <h1>Ping Rural</h1>
   <p class="subtitle">🌱 O agro não para. Nem a gente.</p>
 
-  <form method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfkp80iKOHxEqpnkOa2jUVapoEJ_8mndxvg8itERbyoFYJ3mQ/formResponse">
+  <form method="POST"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfkp80iKOHxEqpnkOa2jUVapoEJ_8mndxvg8itERbyoFYJ3mQ/formResponse"
+        target="hidden_iframe" onsubmit="submitted=true">
+
     <label for="nome">Nome completo:</label>
     <input type="text" id="nome" name="entry.2005620554" required />
 
-    <label for="ddd">DDD do seu número (apenas 2 dígitos):</label>
+    <label for="ddd">DDD do seu número:</label>
     <input type="tel" id="ddd" name="entry.1045781291" required maxlength="2" />
 
     <label for="whatsapp">Número de WhatsApp com DDD:</label>
     <input type="tel" id="whatsapp" name="entry.1166974658" required maxlength="11" />
 
-    <label for="tema"><strong>Selecione os assuntos que mais te interessam:</strong></label>
+    <label><strong>Selecione os assuntos que mais te interessam:</strong></label>
     <div class="checkbox-group">
       <label><input type="checkbox" name="entry.839337160" value="Soja"> Soja</label>
       <label><input type="checkbox" name="entry.839337160" value="Milho"> Milho</label>
@@ -134,5 +137,11 @@
 
     <button type="submit">Quero receber notícias!</button>
   </form>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+          onload="if(submitted) { window.location='obrigado.html'; }"></iframe>
+  <script>
+    var submitted = false;
+  </script>
 </body>
 </html>
